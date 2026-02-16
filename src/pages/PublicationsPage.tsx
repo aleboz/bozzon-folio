@@ -74,8 +74,7 @@ export default function PublicationsPage() {
       );
     }
     result.sort((a, b) => {
-      if (sortBy === 'year-desc') return b.year - a.year || b.citations - a.citations;
-      if (sortBy === 'citations') return b.citations - a.citations;
+      if (sortBy === 'year-desc') return b.year - a.year;
       if (sortBy === 'title') return a.title.localeCompare(b.title);
       return 0;
     });
@@ -132,7 +131,6 @@ export default function PublicationsPage() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="year-desc">Year (newest)</SelectItem>
-              <SelectItem value="citations">Citations</SelectItem>
               <SelectItem value="title">Title A–Z</SelectItem>
             </SelectContent>
           </Select>
@@ -225,12 +223,6 @@ export default function PublicationsPage() {
                   <p className="mb-1 text-sm text-muted-foreground">{pub.authors.join(', ')}</p>
                   <p className="text-sm text-muted-foreground italic">{pub.venueShort || pub.venue}</p>
                 </div>
-                {pub.citations > 0 && (
-                  <div className="shrink-0 text-right">
-                    <div className="text-lg font-bold text-primary">{pub.citations}</div>
-                    <div className="text-xs text-muted-foreground">cites</div>
-                  </div>
-                )}
               </div>
 
               {/* Links */}
