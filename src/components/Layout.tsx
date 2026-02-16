@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
+import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics';
 import Footer from './Footer';
 
 export default function Layout() {
+  useGoogleAnalytics();
   return (
     <div className="flex min-h-screen flex-col">
       <a
