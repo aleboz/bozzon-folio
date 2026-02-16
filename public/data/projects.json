@@ -1,0 +1,56 @@
+[
+  {
+    "id": "delft-ai-labs",
+    "title": "Delft AI Labs",
+    "description": "A TU Delft-wide initiative fostering interdisciplinary AI research through dedicated labs combining AI expertise with domain knowledge across faculties.",
+    "role": "Chair",
+    "status": "active",
+    "timeframe": "2021–present",
+    "collaborators": ["TU Delft Faculties"],
+    "themes": ["Human-Centered AI"],
+    "image": "",
+    "links": {
+      "website": "https://www.tudelft.nl/ai/delft-ai-labs"
+    }
+  },
+  {
+    "id": "future-libraries-lab",
+    "title": "Future Libraries Lab",
+    "description": "A joint initiative with the Royal Library of The Netherlands (KB) exploring how AI and data science can transform library services, cultural heritage access, and knowledge dissemination.",
+    "role": "Co-director",
+    "status": "active",
+    "timeframe": "2022–present",
+    "collaborators": ["Royal Library of The Netherlands (KB)"],
+    "themes": ["Human-Centered AI", "Crowd Computing"],
+    "image": "",
+    "links": {
+      "website": "https://www.tudelft.nl/io/future-libraries-lab"
+    }
+  },
+  {
+    "id": "crowd-computing-eu",
+    "title": "CrowdTruth: Crowd Computing for Semantic Interpretation",
+    "description": "EU-funded project developing methods and tools for harnessing crowd intelligence to capture and leverage semantic ambiguity in annotation tasks.",
+    "role": "Principal Investigator",
+    "status": "completed",
+    "timeframe": "2018–2022",
+    "collaborators": ["VU Amsterdam", "IBM Research"],
+    "themes": ["Crowd Computing"],
+    "image": "",
+    "links": {
+      "website": "https://crowdtruth.org"
+    }
+  },
+  {
+    "id": "horizon-hcai",
+    "title": "HUMAN-AI: Human-Centered Trustworthy AI",
+    "description": "Horizon Europe project developing frameworks and tools for building AI systems that are transparent, fair, and accountable, with humans at the center of the design process.",
+    "role": "Work Package Lead",
+    "status": "active",
+    "timeframe": "2023–2027",
+    "collaborators": ["ETH Zurich", "University of Bologna", "Fraunhofer"],
+    "themes": ["Human-Centered AI", "Responsible AI"],
+    "image": "",
+    "links": {}
+  }
+]
