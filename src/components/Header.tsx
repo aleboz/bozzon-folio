@@ -34,6 +34,7 @@ export default function Header() {
             <Link
               key={item.path}
               to={item.path}
+              aria-current={location.pathname === item.path ? 'page' : undefined}
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground ${
                 location.pathname === item.path ? 'text-primary bg-muted' : 'text-muted-foreground'
               }`}
@@ -65,6 +66,7 @@ export default function Header() {
                     key={item.path}
                     to={item.path}
                     onClick={() => setOpen(false)}
+                    aria-current={location.pathname === item.path ? 'page' : undefined}
                     className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted ${
                       location.pathname === item.path ? 'text-primary bg-muted' : 'text-muted-foreground'
                     }`}

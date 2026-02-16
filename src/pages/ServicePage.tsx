@@ -8,7 +8,7 @@ const stagger = { show: { transition: { staggerChildren: 0.05 } } };
 
 function ServiceSection({ title, items }: { title: string; items: { role: string; organization?: string; venue?: string; years?: string; year?: number }[] }) {
   return (
-    <section className="mb-10">
+    <section className="mb-10" aria-label={title}>
       <h2 className="mb-4 font-display text-xl font-semibold">{title}</h2>
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="space-y-2">
         {items.map((item, i) => (
@@ -28,7 +28,12 @@ function ServiceSection({ title, items }: { title: string; items: { role: string
 export default function ServicePage() {
   const { data, loading } = useJsonData<ServiceData | null>('service.json', null);
 
-  if (loading) return <div className="flex min-h-[60vh] items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" /></div>;
+  if (loading) return (
+    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      <span className="sr-only">Loading content…</span>
+    </div>
+  );
   if (!data) return null;
 
   return (

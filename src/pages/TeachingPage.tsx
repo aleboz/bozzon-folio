@@ -12,7 +12,12 @@ export default function TeachingPage() {
   const { data: courses, loading: cLoading } = useJsonData<Course[]>('teaching.json', []);
   const { data: supervision, loading: sLoading } = useJsonData<Supervision[]>('supervision.json', []);
 
-  if (cLoading || sLoading) return <div className="flex min-h-[60vh] items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" /></div>;
+  if (cLoading || sLoading) return (
+    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      <span className="sr-only">Loading content…</span>
+    </div>
+  );
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -20,13 +25,13 @@ export default function TeachingPage() {
       <p className="mb-10 text-muted-foreground">Courses, seminars, and research supervision.</p>
 
       {/* Courses */}
-      <section className="mb-12">
+      <section className="mb-12" aria-label="Courses">
         <h2 className="mb-6 flex items-center gap-2 font-display text-2xl font-semibold">
-          <GraduationCap className="h-6 w-6 text-primary" /> Courses
+          <GraduationCap className="h-6 w-6 text-primary" aria-hidden="true" /> Courses
         </h2>
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="grid gap-4 md:grid-cols-2">
           {courses.map(course => (
-            <motion.div key={course.id} variants={fadeUp} className="rounded-lg border bg-card p-5">
+            <motion.article key={course.id} variants={fadeUp} className="rounded-lg border bg-card p-5">
               <div className="mb-2 flex items-center gap-2">
                 <Badge variant="secondary" className="text-xs">{course.level}</Badge>
                 <span className="text-xs text-muted-foreground">{course.years}</span>
@@ -36,19 +41,20 @@ export default function TeachingPage() {
               {Object.entries(course.links).filter(([, v]) => v).map(([label, url]) => (
                 <Button key={label} variant="ghost" size="sm" asChild className="mt-2">
                   <a href={url} target="_blank" rel="noopener noreferrer" className="text-xs capitalize">
-                    {label} <ExternalLink className="ml-1 h-3 w-3" />
+                    {label} <ExternalLink className="ml-1 h-3 w-3" aria-hidden="true" />
+                    <span className="sr-only">(opens in new tab)</span>
                   </a>
                 </Button>
               ))}
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
       </section>
 
       {/* Supervision */}
-      <section>
+      <section aria-label="Supervision">
         <h2 className="mb-6 flex items-center gap-2 font-display text-2xl font-semibold">
-          <Users className="h-6 w-6 text-primary" /> Supervision
+          <Users className="h-6 w-6 text-primary" aria-hidden="true" /> Supervision
         </h2>
         <div className="space-y-3">
           {supervision.map((s, i) => (

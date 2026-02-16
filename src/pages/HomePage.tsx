@@ -10,12 +10,12 @@ import { Badge } from '@/components/ui/badge';
 import type { Profile, NewsItem } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
-  award: <Award className="h-5 w-5" />,
-  building: <Building2 className="h-5 w-5" />,
-  brain: <Brain className="h-5 w-5" />,
-  library: <Library className="h-5 w-5" />,
-  trophy: <Trophy className="h-5 w-5" />,
-  globe: <Globe className="h-5 w-5" />,
+  award: <Award className="h-5 w-5" aria-hidden="true" />,
+  building: <Building2 className="h-5 w-5" aria-hidden="true" />,
+  brain: <Brain className="h-5 w-5" aria-hidden="true" />,
+  library: <Library className="h-5 w-5" aria-hidden="true" />,
+  trophy: <Trophy className="h-5 w-5" aria-hidden="true" />,
+  globe: <Globe className="h-5 w-5" aria-hidden="true" />,
 };
 
 const stagger = {
@@ -39,8 +39,9 @@ export default function HomePage() {
 
   if (pLoading) {
     return (
-      <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        <span className="sr-only">Loading content…</span>
       </div>
     );
   }
@@ -50,7 +51,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <section className="relative overflow-hidden border-b bg-gradient-to-br from-primary/5 via-background to-accent/5" aria-label="Introduction">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <motion.div
             initial="hidden"
@@ -74,7 +75,7 @@ export default function HomePage() {
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-3">
               <Button asChild>
-                <Link to="/publications"><BookOpen className="mr-2 h-4 w-4" />Publications</Link>
+                <Link to="/publications"><BookOpen className="mr-2 h-4 w-4" aria-hidden="true" />Publications</Link>
               </Button>
               <Button variant="outline" asChild>
                 <Link to="/projects">Projects</Link>
@@ -84,12 +85,16 @@ export default function HomePage() {
               </Button>
               <Button variant="ghost" size="sm" asChild>
                 <a href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
-                  <GraduationCap className="mr-1 h-4 w-4" />Scholar <ExternalLink className="ml-1 h-3 w-3" />
+                  <GraduationCap className="mr-1 h-4 w-4" aria-hidden="true" />Scholar
+                  <ExternalLink className="ml-1 h-3 w-3" aria-hidden="true" />
+                  <span className="sr-only">(opens in new tab)</span>
                 </a>
               </Button>
               <Button variant="ghost" size="sm" asChild>
                 <a href={profile.links.dblp} target="_blank" rel="noopener noreferrer">
-                  DBLP <ExternalLink className="ml-1 h-3 w-3" />
+                  DBLP
+                  <ExternalLink className="ml-1 h-3 w-3" aria-hidden="true" />
+                  <span className="sr-only">(opens in new tab)</span>
                 </a>
               </Button>
             </motion.div>
@@ -99,7 +104,7 @@ export default function HomePage() {
 
 
       {/* Highlights */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-16" aria-label="Highlights">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
           <motion.h2 variants={fadeUp} className="mb-8 text-center font-display text-2xl font-semibold md:text-3xl">
             Highlights
@@ -112,7 +117,7 @@ export default function HomePage() {
                 className="group rounded-lg border bg-card p-5 transition-shadow hover:shadow-md"
               >
                 <div className="mb-3 flex items-center gap-3">
-                  <div className="rounded-md bg-primary/10 p-2 text-primary">
+                  <div className="rounded-md bg-primary/10 p-2 text-primary" aria-hidden="true">
                     {iconMap[h.icon] || <Sparkles className="h-5 w-5" />}
                   </div>
                   <span className="text-xs font-medium text-muted-foreground">{h.year}</span>
@@ -121,6 +126,7 @@ export default function HomePage() {
                   {h.link ? (
                     <a href={h.link} target="_blank" rel="noopener noreferrer" className="underline decoration-primary/30 underline-offset-2 hover:decoration-primary transition-colors">
                       {h.title}
+                      <span className="sr-only"> (opens in new tab)</span>
                     </a>
                   ) : h.title}
                 </h3>
@@ -132,7 +138,7 @@ export default function HomePage() {
       </section>
 
       {/* Recent News */}
-      <section className="border-t bg-muted/30">
+      <section className="border-t bg-muted/30" aria-label="Recent news">
         <div className="container mx-auto px-4 py-16">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
             <motion.h2 variants={fadeUp} className="mb-8 text-center font-display text-2xl font-semibold md:text-3xl">
@@ -144,7 +150,7 @@ export default function HomePage() {
                   <div className="mb-2 flex items-center gap-2">
                     <Badge variant="secondary" className="text-xs capitalize">{item.type}</Badge>
                     <span className="text-xs text-muted-foreground">
-                      {new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      <time dateTime={item.date}>{new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
                     </span>
                   </div>
                   <h3 className="mb-1 font-sans text-sm font-semibold text-foreground">{item.title}</h3>
@@ -153,7 +159,8 @@ export default function HomePage() {
                     {item.link && (
                       <> {' '}
                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary hover:underline">
-                          more… <ExternalLink className="ml-0.5 inline h-3 w-3" />
+                          more… <ExternalLink className="ml-0.5 inline h-3 w-3" aria-hidden="true" />
+                          <span className="sr-only">(opens in new tab)</span>
                         </a>
                       </>
                     )}
@@ -163,7 +170,7 @@ export default function HomePage() {
             </div>
             <motion.div variants={fadeUp} className="mt-8 text-center">
               <Button variant="outline" asChild>
-                <Link to="/news">All News & Talks <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Link to="/news">All News & Talks <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" /></Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -171,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* Bio */}
-      <section className="border-t bg-muted/30">
+      <section className="border-t bg-muted/30" aria-label="Biography">
         <div className="container mx-auto px-4 py-16">
           <div className="mx-auto max-w-3xl">
             <h2 className="mb-6 font-display text-2xl font-semibold md:text-3xl">About</h2>
