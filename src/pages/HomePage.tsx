@@ -76,11 +76,6 @@ export default function HomePage() {
               <Button variant="outline" asChild>
                 <Link to="/contact">Contact</Link>
               </Button>
-              <Button variant="ghost" asChild>
-                <a href={profile.cvPdfPath} target="_blank" rel="noopener noreferrer">
-                  <Download className="mr-2 h-4 w-4" />CV
-                </a>
-              </Button>
               <Button variant="ghost" size="sm" asChild>
                 <a href={profile.links.scholar} target="_blank" rel="noopener noreferrer">
                   <GraduationCap className="mr-1 h-4 w-4" />Scholar <ExternalLink className="ml-1 h-3 w-3" />
