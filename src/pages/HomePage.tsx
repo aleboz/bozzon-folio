@@ -7,7 +7,7 @@ import {
 import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import type { Profile } from '@/types';
+import type { Profile, NewsItem } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
   award: <Award className="h-5 w-5" />,
@@ -30,6 +30,12 @@ const fadeUp = {
 
 export default function HomePage() {
   const { data: profile, loading: pLoading } = useJsonData<Profile | null>('profile.json', null);
+  const { data: news } = useJsonData<NewsItem[]>('news.json', []);
+
+  const recentNews = news
+    .slice()
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 6);
 
   if (pLoading) {
     return (
@@ -117,6 +123,36 @@ export default function HomePage() {
             ))}
           </div>
         </motion.div>
+      </section>
+
+      {/* Recent News */}
+      <section className="border-t bg-muted/30">
+        <div className="container mx-auto px-4 py-16">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
+            <motion.h2 variants={fadeUp} className="mb-8 text-center font-display text-2xl font-semibold md:text-3xl">
+              Recent News
+            </motion.h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {recentNews.map((item) => (
+                <motion.div key={item.id} variants={fadeUp} className="rounded-lg border bg-card p-5">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Badge variant="secondary" className="text-xs capitalize">{item.type}</Badge>
+                    <span className="text-xs text-muted-foreground">
+                      {new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    </span>
+                  </div>
+                  <h3 className="mb-1 font-sans text-sm font-semibold text-foreground">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div variants={fadeUp} className="mt-8 text-center">
+              <Button variant="outline" asChild>
+                <Link to="/news">All News & Talks <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Bio */}
