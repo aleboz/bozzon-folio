@@ -1,0 +1,36 @@
+[
+  {
+    "id": "web-data-management",
+    "name": "Web & Data Management",
+    "level": "MSc",
+    "years": "2015–present",
+    "description": "Advanced course covering web information systems, data integration, and crowd-powered data management. Students work on real-world projects involving large-scale data processing.",
+    "links": {
+      "coursesite": ""
+    }
+  },
+  {
+    "id": "hcai-seminar",
+    "name": "Human-Centered AI Seminar",
+    "level": "MSc/PhD",
+    "years": "2020–present",
+    "description": "Research seminar exploring current topics in human-centered AI, including fairness, transparency, explainability, and human-AI collaboration.",
+    "links": {}
+  },
+  {
+    "id": "crowd-computing",
+    "name": "Crowd Computing",
+    "level": "MSc",
+    "years": "2016–2023",
+    "description": "Course on the principles and practice of crowd computing, covering task design, quality control, and integration with machine learning.",
+    "links": {}
+  },
+  {
+    "id": "design-engineering-intro",
+    "name": "Introduction to Design Engineering",
+    "level": "BSc",
+    "years": "2021–present",
+    "description": "Introductory course for design engineering students covering design thinking, prototyping, and human-centered design methods.",
+    "links": {}
+  }
+]
