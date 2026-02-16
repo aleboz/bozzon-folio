@@ -117,7 +117,13 @@ export default function HomePage() {
                   </div>
                   <span className="text-xs font-medium text-muted-foreground">{h.year}</span>
                 </div>
-                <h3 className="mb-1 font-sans text-sm font-semibold text-foreground">{h.title}</h3>
+                <h3 className="mb-1 font-sans text-sm font-semibold text-foreground">
+                  {h.link ? (
+                    <a href={h.link} target="_blank" rel="noopener noreferrer" className="underline decoration-primary/30 underline-offset-2 hover:decoration-primary transition-colors">
+                      {h.title}
+                    </a>
+                  ) : h.title}
+                </h3>
                 <p className="text-sm text-muted-foreground">{h.description}</p>
               </motion.div>
             ))}
