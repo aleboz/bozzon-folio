@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import bioPhoto from '@/assets/bio-photo-2024.jpeg';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, BookOpen, Download, ExternalLink, GraduationCap,
@@ -180,11 +181,23 @@ export default function HomePage() {
       {/* Bio */}
       <section className="border-t bg-muted/30" aria-label="Biography">
         <div className="container mx-auto px-4 py-16">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-4xl">
             <h2 className="mb-6 font-display text-2xl font-semibold md:text-3xl">About</h2>
-            {profile.bioLong.split('\n\n').map((para, i) => (
-              <p key={i} className="mb-4 text-base leading-relaxed text-muted-foreground">{para}</p>
-            ))}
+            <div className="flex flex-col gap-8 md:flex-row">
+              <div className="shrink-0">
+                <img
+                  src={bioPhoto}
+                  alt="Portrait of Alessandro Bozzon"
+                  className="w-48 rounded-lg object-cover shadow-md md:w-56"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                {profile.bioLong.split('\n\n').map((para, i) => (
+                  <p key={i} className="mb-4 text-base leading-relaxed text-muted-foreground">{para}</p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
