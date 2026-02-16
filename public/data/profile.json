@@ -24,25 +24,29 @@
       "icon": "award",
       "title": "Fellow of the Netherlands Academy of Engineering",
       "description": "Elected in recognition of contributions to engineering sciences",
-      "year": 2023
+      "year": 2023,
+      "link": "https://www.intechopen.com/profiles/340652"
     },
     {
       "icon": "building",
       "title": "Head of Department",
       "description": "Leading the Department of Sustainable Design Engineering at TU Delft",
-      "year": 2020
+      "year": 2020,
+      "link": "https://www.tudelft.nl/io/over-io/afdelingen/sustainable-design-engineering"
     },
     {
       "icon": "brain",
       "title": "Delft AI Labs Chair",
       "description": "Chairing the Delft AI Labs and Talents initiative",
-      "year": 2021
+      "year": 2021,
+      "link": "https://www.tudelft.nl/ai/delft-ai-labs"
     },
     {
       "icon": "library",
       "title": "Future Libraries Lab",
       "description": "Co-directing the Future Libraries Lab with the Royal Library of The Netherlands",
-      "year": 2022
+      "year": 2022,
+      "link": "https://www.tudelft.nl/io/research/research-labs/future-libraries-lab"
     },
     {
       "icon": "trophy",
