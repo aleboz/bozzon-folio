@@ -148,7 +148,16 @@ export default function HomePage() {
                     </span>
                   </div>
                   <h3 className="mb-1 font-sans text-sm font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                    {item.link && (
+                      <> {' '}
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-primary hover:underline">
+                          more… <ExternalLink className="ml-0.5 inline h-3 w-3" />
+                        </a>
+                      </>
+                    )}
+                  </p>
                 </motion.div>
               ))}
             </div>
