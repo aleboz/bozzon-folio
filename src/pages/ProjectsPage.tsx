@@ -21,21 +21,26 @@ export default function ProjectsPage() {
     return r;
   }, [projects, statusFilter, themeFilter]);
 
-  if (loading) return <div className="flex min-h-[60vh] items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" /></div>;
+  if (loading) return (
+    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      <span className="sr-only">Loading content…</span>
+    </div>
+  );
 
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="mb-2 font-display text-3xl font-bold md:text-4xl">Projects</h1>
       <p className="mb-8 text-muted-foreground">Research projects, labs, and initiatives.</p>
 
-      <div className="mb-6 flex flex-wrap gap-2">
+      <div className="mb-6 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
         {['all', 'active', 'completed'].map(s => (
-          <Button key={s} variant={statusFilter === s ? 'default' : 'outline'} size="sm" onClick={() => setStatusFilter(s)} className="text-xs capitalize">
+          <Button key={s} variant={statusFilter === s ? 'default' : 'outline'} size="sm" onClick={() => setStatusFilter(s)} className="text-xs capitalize" aria-pressed={statusFilter === s}>
             {s === 'all' ? 'All' : s}
           </Button>
         ))}
         {themes.map(t => (
-          <Button key={t} variant={themeFilter === t ? 'default' : 'outline'} size="sm" onClick={() => setThemeFilter(themeFilter === t ? 'all' : t)} className="text-xs">
+          <Button key={t} variant={themeFilter === t ? 'default' : 'outline'} size="sm" onClick={() => setThemeFilter(themeFilter === t ? 'all' : t)} className="text-xs" aria-pressed={themeFilter === t}>
             {t}
           </Button>
         ))}
@@ -43,7 +48,7 @@ export default function ProjectsPage() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {filtered.map(project => (
-          <motion.div key={project.id} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
+          <motion.article key={project.id} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
             className="rounded-lg border bg-card p-6 transition-shadow hover:shadow-md">
             <div className="mb-3 flex items-center gap-2">
               <Badge variant={project.status === 'active' ? 'default' : 'secondary'} className="text-xs capitalize">{project.status}</Badge>
@@ -63,13 +68,14 @@ export default function ProjectsPage() {
                 {Object.entries(project.links).map(([label, url]) => (
                   <Button key={label} variant="ghost" size="sm" asChild>
                     <a href={url} target="_blank" rel="noopener noreferrer" className="text-xs capitalize">
-                      {label} <ExternalLink className="ml-1 h-3 w-3" />
+                      {label} <ExternalLink className="ml-1 h-3 w-3" aria-hidden="true" />
+                      <span className="sr-only">(opens in new tab)</span>
                     </a>
                   </Button>
                 ))}
               </div>
             )}
-          </motion.div>
+          </motion.article>
         ))}
       </div>
     </div>

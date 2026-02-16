@@ -99,8 +99,9 @@ export default function PublicationsPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        <span className="sr-only">Loading publications…</span>
       </div>
     );
   }
@@ -174,6 +175,7 @@ export default function PublicationsPage() {
             size="sm"
             onClick={() => setFeaturedOnly(!featuredOnly)}
             className="text-xs"
+            aria-pressed={featuredOnly}
           >
             ★ Selected
           </Button>

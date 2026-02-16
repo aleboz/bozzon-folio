@@ -44,7 +44,7 @@ export default function ResearchPage() {
           My research lies at the intersection of Human-Computer Interaction, human computation, user modelling, and machine learning, focusing on Human-Centered AI and Crowd Computing.
         </motion.p>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2" role="list">
           {themes.map(t => (
             <motion.div
               key={t.id}
