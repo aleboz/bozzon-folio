@@ -5,7 +5,7 @@
     "type": "award",
     "title": "Best Paper Award at ACM CHI 2024",
     "description": "Our paper on Human-AI Collaboration in Crowd-Powered Systems received the Best Paper Award at CHI 2024.",
-    "link": ""
+    "link": "https://chi2024.acm.org/"
   },
   {
     "id": "news-2",
@@ -13,7 +13,7 @@
     "type": "keynote",
     "title": "Keynote at AAAI HCOMP 2024",
     "description": "Delivered a keynote on 'The Future of Human-AI Collaboration in Crowd Computing' at the AAAI Conference on Human Computation.",
-    "link": ""
+    "link": "https://www.humancomputation.com/"
   },
   {
     "id": "news-3",
