@@ -24,6 +24,7 @@ export interface Highlight {
   title: string;
   description: string;
   year: number;
+  link?: string;
 }
 
 export interface Metrics {
