@@ -7,7 +7,7 @@ import {
 import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import type { Profile, Metrics } from '@/types';
+import type { Profile } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
   award: <Award className="h-5 w-5" />,
@@ -30,9 +30,8 @@ const fadeUp = {
 
 export default function HomePage() {
   const { data: profile, loading: pLoading } = useJsonData<Profile | null>('profile.json', null);
-  const { data: metrics, loading: mLoading } = useJsonData<Metrics | null>('metrics.json', null);
 
-  if (pLoading || mLoading) {
+  if (pLoading) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
@@ -40,7 +39,7 @@ export default function HomePage() {
     );
   }
 
-  if (!profile || !metrics) return null;
+  if (!profile) return null;
 
   return (
     <>
@@ -97,34 +96,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Metrics strip */}
-      <section className="border-b bg-card">
-        <div className="container mx-auto px-4 py-8">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid grid-cols-2 gap-6 text-center md:grid-cols-5"
-          >
-            {[
-              { label: 'Citations', value: metrics.citationsTotal.toLocaleString() },
-              { label: 'h-index', value: metrics.hIndex },
-              { label: 'i10-index', value: metrics.i10Index },
-              { label: 'Publications', value: metrics.totalPublications },
-              { label: `${metrics.recentYear} Papers`, value: metrics.recentYearPublications },
-            ].map(m => (
-              <motion.div key={m.label} variants={fadeUp}>
-                <div className="text-2xl font-bold text-primary md:text-3xl">{m.value}</div>
-                <div className="text-sm text-muted-foreground">{m.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-          <p className="mt-4 text-center text-xs text-muted-foreground">
-            Last updated: {new Date(metrics.lastUpdatedISO).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-          </p>
-        </div>
-      </section>
 
       {/* Highlights */}
       <section className="container mx-auto px-4 py-16">
