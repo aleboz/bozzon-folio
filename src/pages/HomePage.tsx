@@ -5,9 +5,10 @@ import {
   ArrowRight, BookOpen, Download, ExternalLink, GraduationCap,
   Award, Building2, Brain, Library, Trophy, Globe, Sparkles
 } from 'lucide-react';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import profileData from '@/data/profile.json';
+import newsData from '@/data/news.json';
 import type { Profile, NewsItem } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -30,24 +31,13 @@ const fadeUp = {
 };
 
 export default function HomePage() {
-  const { data: profile, loading: pLoading } = useJsonData<Profile | null>('profile.json', null);
-  const { data: news } = useJsonData<NewsItem[]>('news.json', []);
+  const profile = profileData as Profile;
+  const news = newsData as NewsItem[];
 
   const recentNews = news
     .slice()
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 6);
-
-  if (pLoading) {
-    return (
-      <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-        <span className="sr-only">Loading content…</span>
-      </div>
-    );
-  }
-
-  if (!profile) return null;
 
   return (
     <>

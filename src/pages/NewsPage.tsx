@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Mic, Newspaper, Gift, Calendar } from 'lucide-react';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import newsData from '@/data/news.json';
 import type { NewsItem } from '@/types';
 
 const typeIcons: Record<string, React.ReactNode> = {
@@ -16,7 +16,7 @@ const typeIcons: Record<string, React.ReactNode> = {
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
 
 export default function NewsPage() {
-  const { data: news, loading } = useJsonData<NewsItem[]>('news.json', []);
+  const news = newsData as NewsItem[];
   const [typeFilter, setTypeFilter] = useState<string>('all');
 
   const types = useMemo(() => [...new Set(news.map(n => n.type))], [news]);
@@ -25,12 +25,6 @@ export default function NewsPage() {
     return [...r].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, [news, typeFilter]);
 
-  if (loading) return (
-    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <span className="sr-only">Loading content…</span>
-    </div>
-  );
 
   return (
     <div className="container mx-auto px-4 py-12">

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Badge } from '@/components/ui/badge';
+import serviceData from '@/data/service.json';
 import type { ServiceData } from '@/types';
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
@@ -26,15 +26,7 @@ function ServiceSection({ title, items }: { title: string; items: { role: string
 }
 
 export default function ServicePage() {
-  const { data, loading } = useJsonData<ServiceData | null>('service.json', null);
-
-  if (loading) return (
-    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <span className="sr-only">Loading content…</span>
-    </div>
-  );
-  if (!data) return null;
+  const data = serviceData as ServiceData;
 
   return (
     <div className="container mx-auto px-4 py-12">

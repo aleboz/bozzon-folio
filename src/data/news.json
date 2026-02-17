@@ -1,0 +1,50 @@
+[
+  {
+    "id": "news-1",
+    "date": "2024-11-15",
+    "type": "award",
+    "title": "Best Paper Award at ACM CHI 2024",
+    "description": "Our paper on Human-AI Collaboration in Crowd-Powered Systems received the Best Paper Award at CHI 2024.",
+    "link": "https://chi2024.acm.org/"
+  },
+  {
+    "id": "news-2",
+    "date": "2024-09-20",
+    "type": "keynote",
+    "title": "Keynote at AAAI HCOMP 2024",
+    "description": "Delivered a keynote on 'The Future of Human-AI Collaboration in Crowd Computing' at the AAAI Conference on Human Computation.",
+    "link": "https://www.humancomputation.com/"
+  },
+  {
+    "id": "news-3",
+    "date": "2024-06-01",
+    "type": "grant",
+    "title": "New Horizon Europe Grant Awarded",
+    "description": "Secured funding for the HUMAN-AI project on Human-Centered Trustworthy AI, a multi-partner Horizon Europe initiative.",
+    "link": ""
+  },
+  {
+    "id": "news-4",
+    "date": "2024-03-10",
+    "type": "media",
+    "title": "Interview on Responsible AI for Dutch National Radio",
+    "description": "Discussed the challenges and opportunities of responsible AI deployment in public services.",
+    "link": ""
+  },
+  {
+    "id": "news-5",
+    "date": "2023-11-01",
+    "type": "award",
+    "title": "Elected Fellow of the Netherlands Academy of Engineering",
+    "description": "Recognized for contributions to engineering sciences and leadership in AI research.",
+    "link": ""
+  },
+  {
+    "id": "news-6",
+    "date": "2023-06-15",
+    "type": "keynote",
+    "title": "Invited Talk at ICWE 2023",
+    "description": "Presented on 'Crowd-Powered Data Management for the Web' at the International Conference on Web Engineering.",
+    "link": ""
+  }
+]

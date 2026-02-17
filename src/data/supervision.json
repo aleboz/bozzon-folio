@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Dr. Jie Yang",
+    "level": "PhD",
+    "years": "2016–2021",
+    "topic": "Human Computation for Knowledge Graph Construction",
+    "outcome": "Now Assistant Professor at TU Delft",
+    "coSupervisors": ["Geert-Jan Houben"]
+  },
+  {
+    "name": "Dr. Ujwal Gadiraju",
+    "level": "PhD",
+    "years": "2015–2019",
+    "topic": "Understanding and Improving Crowd Work Quality",
+    "outcome": "Now Associate Professor at TU Delft",
+    "coSupervisors": []
+  },
+  {
+    "name": "Dr. Andrea Mauri",
+    "level": "PhD",
+    "years": "2018–2023",
+    "topic": "Data-Driven Methods for Urban Design and Planning",
+    "outcome": "Now Researcher at AMS Institute",
+    "coSupervisors": ["Achilleas Psyllidis"]
+  },
+  {
+    "name": "Shabnam Najafian",
+    "level": "PhD",
+    "years": "2020–2025",
+    "topic": "Value-Aligned Recommendation Systems",
+    "outcome": "Ongoing",
+    "coSupervisors": ["Jie Yang"]
+  },
+  {
+    "name": "Dr. Sihang Qiu",
+    "level": "Postdoc",
+    "years": "2022–2024",
+    "topic": "Conversational Agents for Crowd Computing",
+    "outcome": "",
+    "coSupervisors": []
+  },
+  {
+    "name": "",
+    "level": "MSc",
+    "years": "2015–present",
+    "topic": "Supervised 50+ MSc thesis projects on topics in Human-Centered AI, Crowd Computing, and Urban Analytics",
+    "outcome": "",
+    "coSupervisors": []
+  }
+]

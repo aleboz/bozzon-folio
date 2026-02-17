@@ -1,23 +1,17 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, GraduationCap, Users } from 'lucide-react';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import coursesData from '@/data/teaching.json';
+import supervisionData from '@/data/supervision.json';
 import type { Course, Supervision } from '@/types';
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 const stagger = { show: { transition: { staggerChildren: 0.08 } } };
 
 export default function TeachingPage() {
-  const { data: courses, loading: cLoading } = useJsonData<Course[]>('teaching.json', []);
-  const { data: supervision, loading: sLoading } = useJsonData<Supervision[]>('supervision.json', []);
-
-  if (cLoading || sLoading) return (
-    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <span className="sr-only">Loading content…</span>
-    </div>
-  );
+  const courses = coursesData as Course[];
+  const supervision = supervisionData as Supervision[];
 
   return (
     <div className="container mx-auto px-4 py-12">

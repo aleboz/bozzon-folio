@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Building2, Copy, Check, ExternalLink, GraduationCap, BookOpen, Linkedin, Cloud, Github, Fingerprint } from 'lucide-react';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
+import contactData from '@/data/contact.json';
 import type { ContactData } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -17,24 +17,15 @@ const iconMap: Record<string, React.ReactNode> = {
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
 export default function ContactPage() {
-  const { data, loading } = useJsonData<ContactData | null>('contact.json', null);
+  const data = contactData as ContactData;
   const [copied, setCopied] = useState(false);
 
   const copyEmail = useCallback(() => {
-    if (!data) return;
     navigator.clipboard.writeText(data.email).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
   }, [data]);
-
-  if (loading) return (
-    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <span className="sr-only">Loading content…</span>
-    </div>
-  );
-  if (!data) return null;
 
   return (
     <div className="container mx-auto px-4 py-12">

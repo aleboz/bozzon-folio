@@ -1,0 +1,19 @@
+{
+  "email": "a.bozzon@tudelft.nl",
+  "phone": "",
+  "address": {
+    "line1": "Faculty of Industrial Design Engineering",
+    "line2": "Delft University of Technology",
+    "line3": "Landbergstraat 15, 2628 CE Delft",
+    "country": "The Netherlands"
+  },
+  "office": "Building 32, Room C-3-110",
+  "socialLinks": [
+    { "platform": "Google Scholar", "url": "https://scholar.google.com/citations?user=402ZM7UAAAAJ&hl=it", "icon": "graduation-cap" },
+    { "platform": "DBLP", "url": "https://dblp.org/pid/12/2920.html", "icon": "book-open" },
+    { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/alessandrobozzon/", "icon": "linkedin" },
+    { "platform": "Bluesky", "url": "https://bsky.app/profile/abozzon.bsky.social", "icon": "cloud" },
+    { "platform": "ORCID", "url": "https://orcid.org/0000-0002-3544-0417", "icon": "fingerprint" },
+    { "platform": "GitHub", "url": "https://github.com/aleboz", "icon": "github" }
+  ]
+}
