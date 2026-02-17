@@ -1,15 +1,15 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import projectsData from '@/data/projects.json';
 import type { Project } from '@/types';
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
 export default function ProjectsPage() {
-  const { data: projects, loading } = useJsonData<Project[]>('projects.json', []);
+  const projects = projectsData as Project[];
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [themeFilter, setThemeFilter] = useState<string>('all');
 
@@ -21,12 +21,6 @@ export default function ProjectsPage() {
     return r;
   }, [projects, statusFilter, themeFilter]);
 
-  if (loading) return (
-    <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <span className="sr-only">Loading content…</span>
-    </div>
-  );
 
   return (
     <div className="container mx-auto px-4 py-12">

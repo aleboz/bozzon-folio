@@ -1,0 +1,70 @@
+{
+  "leadership": [
+    {
+      "role": "Head of Department",
+      "organization": "Department of Sustainable Design Engineering, TU Delft",
+      "years": "2020–present"
+    },
+    {
+      "role": "Chair",
+      "organization": "Delft AI Labs and Talents Initiative",
+      "years": "2021–present"
+    },
+    {
+      "role": "Co-director",
+      "organization": "Future Libraries Lab (TU Delft & Royal Library of The Netherlands)",
+      "years": "2022–present"
+    },
+    {
+      "role": "Fellow",
+      "organization": "Netherlands Academy of Engineering",
+      "years": "2023–present"
+    }
+  ],
+  "editorial": [
+    {
+      "role": "Associate Editor",
+      "venue": "ACM Transactions on Interactive Intelligent Systems (TiiS)",
+      "years": "2020–present"
+    },
+    {
+      "role": "Editorial Board Member",
+      "venue": "Human Computation Journal",
+      "years": "2018–present"
+    }
+  ],
+  "programCommittees": [
+    {
+      "role": "Program Co-Chair",
+      "venue": "AAAI HCOMP (Conference on Human Computation and Crowdsourcing)",
+      "year": 2023
+    },
+    {
+      "role": "Area Chair",
+      "venue": "ACM CHI Conference on Human Factors in Computing Systems",
+      "year": 2024
+    },
+    {
+      "role": "Senior PC Member",
+      "venue": "The Web Conference (TheWebConf)",
+      "year": 2024
+    },
+    {
+      "role": "PC Member",
+      "venue": "ACM CSCW, SIGIR, AAAI, IJCAI",
+      "year": 2023
+    }
+  ],
+  "initiatives": [
+    {
+      "role": "Steering Committee",
+      "organization": "AAAI Conference on Human Computation and Crowdsourcing (HCOMP)",
+      "years": "2019–present"
+    },
+    {
+      "role": "Advisory Board",
+      "organization": "AMS Institute Amsterdam",
+      "years": "2021–present"
+    }
+  ]
+}

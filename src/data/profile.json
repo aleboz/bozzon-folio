@@ -1,0 +1,64 @@
+{
+  "name": "Alessandro Bozzon",
+  "titles": [
+    "Professor of Human-Centered Artificial Intelligence",
+    "Head of Department of Sustainable Design Engineering"
+  ],
+  "affiliation": "Delft University of Technology",
+  "bioShort": "My research lies at the intersection of Human-Computer Interaction, human computation, user modelling, and machine learning, with a focus on Human-Centered AI and Crowd Computing.",
+  "bioLong": "I am a Professor of Human-Centered Artificial Intelligence at the Delft University of Technology (TU Delft), and Head of the Department of Sustainable Design Engineering since November 2020. I am a Fellow of the Netherlands Academy of Engineering, chair of the Delft AI Labs and Talents initiative, and co-director of the Future Libraries Lab (with the Royal Library of The Netherlands).\n\nMy research focuses on methods and tools that support the design, development, and deployment of AI-powered systems that are human-centered, transparent, and responsible. I combine expertise in Human-Computer Interaction, human computation, user modelling, and machine learning to study Crowd Computing and Human-Centered AI.\n\nI have published 200+ peer-reviewed papers in top venues such as ACM CHI, CSCW, TheWebConf, VLDB, SIGIR, and UIST. My work has received multiple best paper awards and has been funded by NWO, EU Horizon, and industry partners.",
+  "portraitImagePath": "/images/portrait.jpg",
+  "cvPdfPath": "/cv.pdf",
+  "researchStatement": "Designing AI systems that augment human capabilities through transparent, responsible, and participatory approaches.",
+  "links": {
+    "scholar": "https://scholar.google.com/citations?user=402ZM7UAAAAJ&hl=it",
+    "dblp": "https://dblp.org/pid/12/2920.html",
+    "linkedin": "https://www.linkedin.com/in/alessandrobozzon/",
+    "bluesky": "https://bsky.app/profile/abozzon.bsky.social",
+    "email": "a.bozzon@tudelft.nl",
+    "github": "https://github.com/aleboz",
+    "orcid": "https://orcid.org/0000-0002-3544-0417"
+  },
+  "highlights": [
+    {
+      "icon": "award",
+      "title": "Fellow of the Netherlands Academy of Engineering",
+      "description": "Elected in recognition of contributions to engineering sciences",
+      "year": 2023,
+      "link": "https://www.intechopen.com/profiles/340652"
+    },
+    {
+      "icon": "building",
+      "title": "Head of Department",
+      "description": "Leading the Department of Sustainable Design Engineering at TU Delft",
+      "year": 2020,
+      "link": "https://www.tudelft.nl/io/over-io/afdelingen/sustainable-design-engineering"
+    },
+    {
+      "icon": "brain",
+      "title": "Delft AI Labs Chair",
+      "description": "Chairing the Delft AI Labs and Talents initiative",
+      "year": 2021,
+      "link": "https://www.tudelft.nl/ai/delft-ai-labs"
+    },
+    {
+      "icon": "library",
+      "title": "Future Libraries Lab",
+      "description": "Co-directing the Future Libraries Lab with the Royal Library of The Netherlands",
+      "year": 2022,
+      "link": "https://www.tudelft.nl/io/research/research-labs/future-libraries-lab"
+    },
+    {
+      "icon": "trophy",
+      "title": "Best Paper Awards",
+      "description": "Multiple best paper awards at top-tier venues including ACM CHI and TheWebConf",
+      "year": 2024
+    },
+    {
+      "icon": "globe",
+      "title": "EU Horizon Projects",
+      "description": "Leading and contributing to multiple EU-funded research projects",
+      "year": 2023
+    }
+  ]
+}

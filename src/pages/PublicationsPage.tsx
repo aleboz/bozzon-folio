@@ -5,11 +5,11 @@ import {
   Search, X, ExternalLink, Copy, Check, FileText, Code2, Database,
   Video, Presentation, ChevronDown, ChevronUp, Download, Filter, Award
 } from 'lucide-react';
-import { useJsonData } from '@/hooks/useJsonData';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import publicationsData from '@/data/publications.json';
 import type { Publication } from '@/types';
 
 const TYPE_LABELS: Record<string, string> = {
@@ -34,7 +34,7 @@ function CopyBibtex({ bibtex }: { bibtex: string }) {
 }
 
 export default function PublicationsPage() {
-  const { data: pubs, loading } = useJsonData<Publication[]>('publications.json', []);
+  const pubs = publicationsData as Publication[];
   const [searchParams] = useSearchParams();
   const initialTheme = searchParams.get('theme') || '';
 
@@ -97,14 +97,6 @@ export default function PublicationsPage() {
 
   const hasFilters = query || yearFilter !== 'all' || typeFilter !== 'all' || themeFilter !== 'all' || authorFilter !== 'all' || featuredOnly;
 
-  if (loading) {
-    return (
-      <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-        <span className="sr-only">Loading publications…</span>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto px-4 py-12">
